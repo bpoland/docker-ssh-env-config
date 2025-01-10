@@ -22,9 +22,6 @@ if [ -z "$SSH_CONFIG" ] && \
   [ -z "$SSH_KNOWN_HOSTS" ] && \
   [ -z "$SSH_KNOWN_HOSTS_B64" ] && \
   [ -z "$SSH_KNOWN_HOSTS_PATH" ] && \
-  [ -z "$SSH_PRIVATE_DSA_KEY" ] && \
-  [ -z "$SSH_PRIVATE_DSA_KEY_B64" ] && \
-  [ -z "$SSH_PRIVATE_DSA_KEY_PATH" ] && \
   [ -z "$SSH_PRIVATE_ECDSA_KEY" ] && \
   [ -z "$SSH_PRIVATE_ECDSA_KEY_B64" ] && \
   [ -z "$SSH_PRIVATE_ECDSA_KEY_PATH" ] && \
@@ -86,23 +83,6 @@ decode_base64() {
   cp "$SSH_KNOWN_HOSTS_PATH" ~/.ssh/known_hosts && \
   chmod 600 ~/.ssh/known_hosts && \
   unset SSH_KNOWN_HOSTS_PATH
-
-## ~/.ssh/id_dsa
-
-[[ ! -z "$SSH_PRIVATE_DSA_KEY" ]] && \
-  echo "$SSH_PRIVATE_DSA_KEY" > ~/.ssh/id_dsa && \
-  chmod 600 ~/.ssh/id_dsa && \
-  unset SSH_PRIVATE_DSA_KEY
-
-[[ ! -z "$SSH_PRIVATE_DSA_KEY_B64" ]] && \
-  decode_base64 "$SSH_PRIVATE_DSA_KEY_B64" > ~/.ssh/id_dsa && \
-  chmod 600 ~/.ssh/id_dsa && \
-  unset SSH_PRIVATE_DSA_KEY_B64
-
-[[ ! -z "$SSH_PRIVATE_DSA_KEY_PATH" && ! -a ~/.ssh/id_dsa ]] && \
-  cp "$SSH_PRIVATE_DSA_KEY_PATH" ~/.ssh/id_dsa && \
-  chmod 600 ~/.ssh/id_dsa && \
-  unset SSH_PRIVATE_DSA_KEY_PATH
 
 ## ~/.ssh/id_ecdsa
 

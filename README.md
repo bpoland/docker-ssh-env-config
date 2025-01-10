@@ -4,7 +4,6 @@ A Docker entrypoint wrapper which sets up SSH config files based on the followin
 
 * `SSH_CONFIG` - contents of an SSH config file
 * `SSH_KNOWN_HOSTS` - contents of an SSH known_hosts file
-* `SSH_PRIVATE_DSA_KEY` - contents of an SSH private DSA key
 * `SSH_PRIVATE_ECDSA_KEY` - contents of an SSH private ECDSA key
 * `SSH_PRIVATE_ED25519_KEY` - contents of an SSH private ED25519 key
 * `SSH_PRIVATE_RSA_KEY` - contents of an SSH private RSA key
